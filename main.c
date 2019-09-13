@@ -708,7 +708,17 @@ static inline void checkErrors(void) {
     }
 
     if(temp >= CFG->tempDefect) {
+        // write to UART????
         error |= ERROR_ERT;
+        
+        UART_write("temp =");
+        UART_writeDecU32(temp);
+        UART_write(";");
+        UART_write("CFG->tempDefect =");
+        UART_writeDecU32(CFG->tempDefect);
+        UART_write("\r\n");
+
+        
     }
 
     if(temp < CFG->tempLimit) {
@@ -1268,6 +1278,7 @@ static void updateDisplays(void) {
             bufB[3] = DISPLAYS_SYM_SPACE;
         }
         else if(error & ERROR_ERT) {
+            // tSEn Err
             bufB[0] = DISPLAYS_SYM_t;
             bufB[1] = DISPLAYS_SYM_S;
             bufB[2] = DISPLAYS_SYM_E;
@@ -1445,28 +1456,28 @@ static inline void initialState(void) {
 /*
     FLASH_unlockData();
 
-    CFG->iSetCoef.offset   = 86;
-    CFG->iSetCoef.mul      = 2700;
+    CFG->iSetCoef.offset   = 1;
+    CFG->iSetCoef.mul      = 2770;
     CFG->iSetCoef.div      = 10;
 
-    CFG->uMainCoef.offset  = 8630;
-    CFG->uMainCoef.mul     = 5117;
+    CFG->uMainCoef.offset  = 8100;
+    CFG->uMainCoef.mul     = 5145;
     CFG->uMainCoef.div     = 16;
 
     CFG->uSenseCoef.offset = 9790;
-    CFG->uSenseCoef.mul    = 4495;
+    CFG->uSenseCoef.mul    = 4520;
     CFG->uSenseCoef.div    = 16;
 
     CFG->uSupMin           = 0x052A; // ~10V
 
     CFG->tempThreshold     = 0x0020;
-    CFG->tempFanLow        = 0x0300;
-    CFG->tempFanMid        = 0x0280;
-    CFG->tempFanFull       = 0x0200;
+    CFG->tempFanLow        = 1200;
+    CFG->tempFanMid        = 1100;
+    CFG->tempFanFull       = 1000;
     CFG->tempLimit         = 0x0100;
-    CFG->tempDefect        = 0x0600;
+    CFG->tempDefect        = 1800; //0x0600; // statup check
 
-    CFG->iSetMin           =     100;
+    CFG->iSetMin           =      10;
     CFG->iSetMax           =   10000;
     CFG->uSetMin           =     100;
     CFG->uSetMax           =   25000;

@@ -6,11 +6,11 @@ all: bin
 
 bin: $(MAIN) $(RELS)
 	@mkdir -p bin
-	sdcc  --opt-code-size -mstm8 -lstm8 $(MAIN) $(wildcard bin/*.rel) -o bin/
+	sdcc --std-c11 --opt-code-size -mstm8 -lstm8 $(MAIN) $(wildcard bin/*.rel) -o bin/
 
 .c.rel:
 	@mkdir -p bin
-	sdcc -c  --opt-code-size -mstm8 -lstm8 $< -o bin/
+	sdcc -c --std-c11 --opt-code-size -mstm8 -lstm8 $< -o bin/
 
 clean:
 	@rm -rf bin
