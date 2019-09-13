@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1300</width>
-    <height>887</height>
+    <height>924</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -141,7 +141,7 @@
      <x>0</x>
      <y>0</y>
      <width>1300</width>
-     <height>21</height>
+     <height>30</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File">
@@ -189,7 +189,7 @@
     <bool>false</bool>
    </property>
    <property name="windowTitle">
-    <string>Table</string>
+    <string>&amp;Table</string>
    </property>
    <attribute name="dockWidgetArea">
     <number>8</number>
@@ -214,7 +214,7 @@
     <bool>false</bool>
    </property>
    <property name="windowTitle">
-    <string>Graph</string>
+    <string>G&amp;raph</string>
    </property>
    <attribute name="dockWidgetArea">
     <number>8</number>
@@ -231,7 +231,7 @@
    <property name="minimumSize">
     <size>
      <width>335</width>
-     <height>299</height>
+     <height>544</height>
     </size>
    </property>
    <property name="windowTitle">
@@ -242,6 +242,20 @@
    </attribute>
    <widget class="QWidget" name="dockWidgetContents_4">
     <layout class="QGridLayout" name="gridLayout">
+     <item row="5" column="1">
+      <widget class="QLineEdit" name="energyBox">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="0">
+      <widget class="QLabel" name="temperatureLabel_2">
+       <property name="text">
+        <string>TempRaw</string>
+       </property>
+      </widget>
+     </item>
      <item row="0" column="0">
       <widget class="QFrame" name="frame">
        <property name="frameShape">
@@ -249,6 +263,92 @@
        </property>
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1" colspan="2">
+      <widget class="QwtThermo" name="temperatureBox">
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="scaleStepSize">
+        <double>0.000000000000000</double>
+       </property>
+       <property name="alarmEnabled">
+        <bool>true</bool>
+       </property>
+       <property name="alarmLevel">
+        <double>80.000000000000000</double>
+       </property>
+       <property name="value">
+        <double>0.000000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0" rowspan="2">
+      <widget class="QLabel" name="energyLabel">
+       <property name="text">
+        <string>Energy</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="uActualLabel">
+       <property name="text">
+        <string>U-Actual</string>
+       </property>
+      </widget>
+     </item>
+     <item row="12" column="1" colspan="2">
+      <widget class="QPushButton" name="runButton">
+       <property name="text">
+        <string>Run</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QDoubleSpinBox" name="currentBox">
+       <property name="suffix">
+        <string> A</string>
+       </property>
+       <property name="singleStep">
+        <double>0.100000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="13" column="1">
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>0</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="currentLabel">
+       <property name="text">
+        <string>Current</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QDoubleSpinBox" name="uLimitBox">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="suffix">
+        <string> V</string>
+       </property>
+       <property name="singleStep">
+        <double>0.100000000000000</double>
        </property>
       </widget>
      </item>
@@ -270,7 +370,7 @@
            <bool>true</bool>
           </property>
           <property name="text">
-           <string>Fun 1</string>
+           <string>Fun &amp;1</string>
           </property>
           <property name="checked">
            <bool>true</bool>
@@ -280,7 +380,7 @@
         <item>
          <widget class="QRadioButton" name="fun2Button">
           <property name="text">
-           <string>Fun 2</string>
+           <string>Fun &amp;2</string>
           </property>
           <property name="checked">
            <bool>false</bool>
@@ -295,13 +395,6 @@
          </widget>
         </item>
        </layout>
-      </widget>
-     </item>
-     <item row="5" column="1">
-      <widget class="QLineEdit" name="energyBox">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
       </widget>
      </item>
      <item row="2" column="2" rowspan="2">
@@ -340,92 +433,6 @@
        </property>
       </widget>
      </item>
-     <item row="7" column="1" colspan="2">
-      <widget class="QwtThermo" name="temperatureBox" native="true">
-       <property name="toolTip">
-        <string/>
-       </property>
-       <property name="scaleStepSize" stdset="0">
-        <double>0.000000000000000</double>
-       </property>
-       <property name="alarmEnabled" stdset="0">
-        <bool>false</bool>
-       </property>
-       <property name="alarmLevel" stdset="0">
-        <double>80.000000000000000</double>
-       </property>
-       <property name="value" stdset="0">
-        <double>0.000000000000000</double>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="0" rowspan="2">
-      <widget class="QLabel" name="energyLabel">
-       <property name="text">
-        <string>Energy</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0">
-      <widget class="QLabel" name="uActualLabel">
-       <property name="text">
-        <string>U-Actual</string>
-       </property>
-      </widget>
-     </item>
-     <item row="8" column="1" colspan="2">
-      <widget class="QPushButton" name="runButton">
-       <property name="text">
-        <string>Run</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="1">
-      <widget class="QDoubleSpinBox" name="currentBox">
-       <property name="suffix">
-        <string> A</string>
-       </property>
-       <property name="singleStep">
-        <double>0.100000000000000</double>
-       </property>
-      </widget>
-     </item>
-     <item row="9" column="1">
-      <spacer name="verticalSpacer">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>0</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="currentLabel">
-       <property name="text">
-        <string>Current</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="QDoubleSpinBox" name="uLimitBox">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="suffix">
-        <string> V</string>
-       </property>
-       <property name="singleStep">
-        <double>0.100000000000000</double>
-       </property>
-      </widget>
-     </item>
      <item row="2" column="0">
       <widget class="QLabel" name="uLimitLabel">
        <property name="text">
@@ -456,6 +463,55 @@
        </property>
        <property name="text">
         <string>Reset</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="1">
+      <widget class="QLineEdit" name="temperatureActual">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="1">
+      <widget class="QLineEdit" name="uRaw">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="0">
+      <widget class="QLabel" name="temperatureLabel_3">
+       <property name="text">
+        <string>P-Actual [W]</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="1">
+      <widget class="QLineEdit" name="powerActual">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="0">
+      <widget class="QLabel" name="temperatureLabel_4">
+       <property name="text">
+        <string>uRaw</string>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="1">
+      <widget class="QLineEdit" name="iRaw">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="0">
+      <widget class="QLabel" name="temperatureLabel_5">
+       <property name="text">
+        <string>iRaw</string>
        </property>
       </widget>
      </item>
@@ -518,7 +574,7 @@
   </action>
   <action name="actionLoadRawLog">
    <property name="text">
-    <string>Load Raw Log</string>
+    <string>&amp;Load Raw Log</string>
    </property>
   </action>
  </widget>

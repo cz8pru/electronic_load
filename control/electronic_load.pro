@@ -58,12 +58,18 @@ DISTFILES +=
 RESOURCES += \
     common.qrc
 
+# sudo apt-get install libqwt-qt5-dev
 unix {
     CONFIG   += qwt-qt5
     INCLUDEPATH += /usr/include/qwt
     LIBS += -lqwt-qt5
 }
 
+#unix {
+#    CONFIG   += qwt-qt4
+#    INCLUDEPATH += /usr/include/qwt-qt4
+#    LIBS += -l qwt-qt4
+#}
 win32 {
     include (C:/qwt-6.1.3/features/qwt.prf)
     CONFIG += qwt

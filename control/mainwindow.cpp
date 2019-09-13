@@ -507,6 +507,14 @@ void MainWindow::on_serData(QByteArray d, qint64 timestamp)
                         ui->energyBox->setText(QString("%L1 A⋅h (%L2 W⋅h)").arg(s.ah, 0, 'f', 3).arg(s.wh, 0, 'f', 3));
                         ui->wireLabel->setVisible(is4Wire);
                         ui->temperatureBox->setValue(1/(double)c->tempRaw);
+
+                        ui->temperatureActual->setText(QString("%L1 [raw]").arg(c->tempRaw, 0, 'f', 2));
+
+                        ui->powerActual->setText(QString("%L1 W").arg(s.u*s.i, 0, 'f', 2));
+
+                        ui->uRaw->setText(QString("%L1").arg(c->uSense, 0, 'f', 2));
+                        ui->iRaw->setText(QString("%L1").arg(s.i, 0, 'f', 2));
+
                     }
                     break;
 
